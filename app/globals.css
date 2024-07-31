@@ -1,0 +1,14 @@
+.slick_slider {
+	background-color: transparent;
+	box-shadow: none;
+}
+.slick-dots li.slick-active button {
+	background-color: gray;
+	border-radius: 50px;
+	width: 25px !important;
+	height: 2px !important;
+	display: inline-block;
+}
+.slick-dots li.slick-active button::before {
+	content: " ";
+}
