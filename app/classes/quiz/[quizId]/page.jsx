@@ -450,6 +450,7 @@ const page = ({ params }) => {
 													padding: 1,
 													borderRadius: 2,
 												}}
+												key={i}
 											>
 												<Typography color="text.secondary">
 													Question {i + 1}: {quiz.questions[i].title}

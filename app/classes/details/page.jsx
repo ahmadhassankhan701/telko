@@ -26,7 +26,7 @@ import {
 } from "@mui/material";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { toast } from "react-toastify";
 import {
 	collection,
@@ -40,7 +40,7 @@ import { db } from "@/firebase";
 import renderHTML from "react-render-html";
 import moment from "moment";
 import PDFModal from "@/components/Modals/PDFModal";
-const page = () => {
+const DetailsPage = () => {
 	const route = useRouter();
 	const searchParam = useSearchParams();
 	const selectedClass = searchParam.get("selectedClass");
@@ -669,5 +669,14 @@ const page = () => {
 		</Box>
 	);
 };
-
-export default page;
+const PageWrapper = () => (
+	<Suspense fallback={<Backdrop
+		sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+		open={true}
+	>
+		<img src={"/loader.gif"} width={100} height={100} />
+	</Backdrop>}>
+		<DetailsPage />
+	</Suspense>
+);
+export default PageWrapper;

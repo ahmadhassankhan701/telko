@@ -12,9 +12,10 @@ import {
 import { collection, getDocs } from "firebase/firestore";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
+import { Backdrop } from "@mui/material";
 
-const page = () => {
+const ChaptersPage = () => {
 	const route = useRouter();
 	const searchParam = useSearchParams();
 	const selectedClass = searchParam.get("selectedClass");
@@ -196,5 +197,14 @@ const page = () => {
 		</Box>
 	);
 };
-
-export default page;
+const PageWrapper = () => (
+	<Suspense fallback={<Backdrop
+		sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+		open={true}
+	>
+		<img src={"/loader.gif"} width={100} height={100} />
+	</Backdrop>}>
+		<ChaptersPage />
+	</Suspense>
+);
+export default PageWrapper;

@@ -113,7 +113,7 @@ const PCourseWideCard = ({
 					{Array(rating)
 						.fill()
 						.map((_, i) => (
-							<Star key={i} sx={{ color: "rgb(255, 164, 27)", fontSize: 14 }} />
+							<Star key={i+"-filled"} sx={{ color: "rgb(255, 164, 27)", fontSize: 14 }} />
 						))
 						.concat(
 							Array(5 - rating)
