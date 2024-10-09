@@ -1,181 +1,231 @@
 "use client";
-import Achievement from "@/components/Achievements/Achievement";
-import Event from "@/components/Events/Event";
-import CourseCateg from "@/components/CourseCategs/CourseCateg";
-import TopHeroCards from "@/components/HeroCards/TopHeroCards";
-import PopularCourses from "@/components/PopularCourses/PopularCourses";
-import {
-	FacebookOutlined,
-	Instagram,
-	LinkedIn,
-	Twitter,
-} from "@mui/icons-material";
-import { Typography } from "@mui/material";
-import { Box, Button } from "@mui/material";
+import ProductAvailabilitty from "@/components/Availability/ProductAvailabilitty";
+import HeroSlider from "@/components/HeroSlider";
+import CategoryCard from "@/components/Products/CategoryCard";
+import { Box, Grid, Typography, Button } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Instructor from "@/components/Instructors/Instructor";
-import Blog from "@/components/Blogs/Blog";
+import React from "react";
 const theme = createTheme({
-	typography: {
-		fontFamily: "Poppins, sans-serif",
-	},
+  typography: {
+    fontFamily: "Poppins, sans-serif",
+  },
 });
-export default function Home() {
-	return (
-		<Box>
-			<ThemeProvider theme={theme}>
-				<Box
-					sx={{
-						backgroundImage: `url(/homeBanner.jpg)`,
-						backgroundSize: "cover",
-						backgroundPosition: "center",
-						height: "950px",
-						display: "flex",
-						justifyContent: "center",
-						flexDirection: "column",
-						width: "100%",
-					}}
-				>
-					<Box display={"flex"} alignItems={"center"} gap={10} ml={5} mb={3}>
-						<Box
-							sx={{ display: { sm: "flex", xs: "none" } }}
-							flexDirection={"column"}
-							alignItems={"center"}
-							gap={2}
-						>
-							<FacebookOutlined sx={{ color: "#fff", fontSize: 24 }} />
-							<Twitter sx={{ color: "#fff", fontSize: 24 }} />
-							<Instagram sx={{ color: "#fff", fontSize: 24 }} />
-							<LinkedIn sx={{ color: "#fff", fontSize: 24 }} />
-							<Typography
-								variant="p"
-								sx={{
-									fontSize: 16,
-									fontWeight: 700,
-									lineHeight: 1,
-									color: "#fff",
-									display: "inline-block",
-									writingMode: "vertical-lr",
-									transform: "rotate(180deg)",
-									textAlign: "center",
-								}}
-							>
-								<span
-									style={{
-										width: 2,
-										height: 32,
-										marginBottom: 5,
-										display: "inline-block",
-										background: "#ff3158",
-									}}
-								></span>
-								Let's keep in touch
-							</Typography>
-						</Box>
-						<Box>
-							<Typography
-								variant="h1"
-								sx={{
-									display: "flex",
-									alignItems: "center",
-									fontSize: 18,
-									fontWeight: 800,
-									color: "#ff3158",
-									textTransform: "capitalize",
-									paddingBottom: 1,
-									lineHeight: 1.5,
-								}}
-							>
-								<img src="/dot.png" alt="dot" width={36} height={36} />
-								The Leader in Online Learning
-							</Typography>
-							<Typography
-								variant="h2"
-								component={"h2"}
-								sx={{
-									fontSize: {
-										xs: 40,
-										sm: 60,
-									},
-									fontWeight: 800,
-									color: "#fff",
-									letterSpacing: -0.8,
-									textTransform: "uppercase",
-									my: 2,
-									lineHeight: 1.5,
-								}}
-							>
-								Explore Live <br /> Creative Classes
-							</Typography>
-							<Typography
-								variant="p"
-								component={"p"}
-								sx={{
-									fontSize: "18px",
-									maxWidth: 620,
-									paddingTop: 2,
-									paddingBottom: 10,
-									color: "#ccc",
-									fontWeight: 400,
-								}}
-							>
-								Architect client-centered total linkage for intuitive benefits
-								restore convergence before real-time partnerships.
-							</Typography>
-							<Box
-								display={"flex"}
-								alignItems={"center"}
-								sx={{
-									gap: {
-										xs: 1,
-										sm: 3,
-									},
-								}}
-							>
-								<Button
-									variant={"contained"}
-									size="large"
-									sx={{
-										bgcolor: "#ff3158",
-										fontSize: { xs: 12, sm: 16 },
-										"&:hover": {
-											bgcolor: "#f50366",
-										},
-									}}
-								>
-									Get Started
-								</Button>
-								<Button
-									size={"large"}
-									variant={"outlined"}
-									sx={{
-										borderColor: "#ff3158",
-										color: "#ff3158",
-										fontSize: { xs: 12, sm: 16 },
-										"&:hover": {
-											color: "#f50366",
-											borderColor: "#f50366",
-										},
-									}}
-								>
-									Explore More
-								</Button>
-							</Box>
-						</Box>
-					</Box>
-				</Box>
-				<Box>
-					<TopHeroCards />
-				</Box>
-				<PopularCourses />
-				<CourseCateg />
-				<Box sx={{ background: `url("/eventsBg.png")` }}>
-					<Achievement />
-					<Event />
-				</Box>
-				<Instructor />
-				<Blog />
-			</ThemeProvider>
-		</Box>
-	);
-}
+const page = () => {
+  return (
+    <ThemeProvider theme={theme}>
+      <HeroSlider image={"heroImage1.png"} />
+      <Box
+        sx={{
+          bgcolor: "#ECE9E9",
+          height: "200px",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <ProductAvailabilitty />
+      </Box>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          flexDirection: "column",
+          mt: 3,
+        }}
+      >
+        <Typography
+          sx={{
+            fontSize: {
+              xs: 20,
+              sm: 30,
+            },
+            fontWeight: 700,
+            color: "#000000",
+            letterSpacing: -0.8,
+            textTransform: "none",
+            mb: 1,
+          }}
+        >
+          Internet connectivity made simple
+        </Typography>
+        <Typography
+          sx={{
+            fontSize: {
+              xs: 12,
+              sm: 16,
+            },
+            fontWeight: 700,
+            color: "#000000",
+            letterSpacing: -0.8,
+            textTransform: "none",
+            mb: 1,
+          }}
+        >
+          From a lot of options to choose from
+        </Typography>
+      </Box>
+      <Grid container height={"480px"} mt={2}>
+        <Grid
+          item
+          xs={12}
+          sm={8}
+          bgcolor={"#0A93AB"}
+          display={"flex"}
+          alignItems={"flex-start"}
+          flexDirection={"column"}
+          justifyContent={"center"}
+        >
+          <Box ml={5}>
+            <Typography
+              sx={{
+                fontSize: {
+                  xs: 20,
+                  sm: 30,
+                },
+                fontWeight: 700,
+                color: "#FFFFFF",
+                letterSpacing: -0.8,
+                textTransform: "none",
+                lineHeight: "43.57px",
+                mb: 1,
+              }}
+            >
+              Our fiber internet
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: {
+                  xs: 14,
+                  sm: 18,
+                },
+                fontWeight: 700,
+                color: "#FFFFFF",
+                letterSpacing: -0.8,
+                textTransform: "none",
+                lineHeight: "43.57px",
+                width: { xs: "250px", sm: "445px" },
+                mb: 1,
+              }}
+            >
+              We are available all over the country with a lot of options that
+              are affordable and with 24/7 support you can have a piece of mind.
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: {
+                  xs: 20,
+                  sm: 30,
+                },
+                fontWeight: 700,
+                color: "#FFFFFF",
+                letterSpacing: -0.8,
+                textTransform: "none",
+                lineHeight: "43.57px",
+                mb: 1,
+              }}
+            >
+              Starting from R449
+            </Typography>
+            <Button
+              variant={"contained"}
+              size="large"
+              sx={{
+                bgcolor: "#FF0000",
+                fontSize: { xs: 12, sm: 14 },
+                textTransform: "none",
+                borderRadius: 8,
+                width: 250,
+                height: 60,
+                mt: 1,
+                "&:hover": {
+                  bgcolor: "#FF0000",
+                },
+              }}
+            >
+              Get yours today
+            </Button>
+          </Box>
+        </Grid>
+        <Grid
+          item
+          xs={12}
+          sm={4}
+          sx={{
+            backgroundImage: `url(/watch.png)`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        ></Grid>
+      </Grid>
+      <Box width={"80%"} alignSelf={"center"} mt={5}>
+        <Grid container mt={5} spacing={1}>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            lg={4}
+            mb={1}
+            display={"flex"}
+            justifyContent={"center"}
+            alignItems={"center"}
+          >
+            <CategoryCard />
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            lg={4}
+            mb={1}
+            display={"flex"}
+            justifyContent={"center"}
+            alignItems={"center"}
+          >
+            <CategoryCard />
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            lg={4}
+            mb={1}
+            display={"flex"}
+            justifyContent={"center"}
+            alignItems={"center"}
+          >
+            <CategoryCard />
+          </Grid>
+        </Grid>
+      </Box>
+      <Box width={"80%"} alignSelf={"center"} mb={5}>
+        <Grid container mt={5} spacing={1}>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            mb={1}
+            display={"flex"}
+            justifyContent={"center"}
+            alignItems={"center"}
+          >
+            <CategoryCard />
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            mb={1}
+            display={"flex"}
+            justifyContent={"center"}
+            alignItems={"center"}
+          >
+            <CategoryCard />
+          </Grid>
+        </Grid>
+      </Box>
+    </ThemeProvider>
+  );
+};
+
+export default page;
